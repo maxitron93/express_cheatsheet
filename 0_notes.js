@@ -38,3 +38,14 @@ app.get('/api/queries/:year/:month', (req, res) => {
 console.log(process.env.NODE_ENV) // Gets the enviroment variable and returns 'undefined' if NODE_ENV is not explicitly set 
 console.log(app.get('env')) // Gets the environment and returns 'development' if NODE_ENV is not explicitly set
 
+
+
+/*
+Authentication:
+Making sure the user is who they say they are (logging in)
+Register: POST /api/users { name, email (unique: true), password }
+Login: POST /api/logins
+
+Authorization:
+Determining if the user has the right permission to do the operation
+*/

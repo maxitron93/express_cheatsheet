@@ -1,0 +1,8 @@
+POST http://localhost:3000/api/auth
+content-type: application/json
+// Login
+
+{
+  "email": "maxi@bestmailserver.lol2",
+  "password": "notsosecretpassword"
+}

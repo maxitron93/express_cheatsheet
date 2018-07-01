@@ -5,7 +5,7 @@ const Joi = require('joi')
 const genreSchema = new mongoose.Schema({
   name: {
     type: String,
-    trquired: true,
+    required: true,
     minlength: 5,
     maxlength: 50
   }

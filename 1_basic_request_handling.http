@@ -14,7 +14,7 @@ content-type: application/json
 // Create a new genre
 
 {
-  "name": "Fun"
+  "name": "Horror"
 }
 
 ###

@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/users
+content-type: application/json
+// Test create a user
+
+{
+  "name": "Maxi",
+  "email": "maxi@bestmailserver.lol",
+  "password": "notsosecretpassword"
+}

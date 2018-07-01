@@ -38,6 +38,12 @@ const validateGenre = (genre) => {
   return result = Joi.validate(genre, schema)
 }
 
+
+
+/////////////////////////////////
+///// HANDLING GET REQUESTS /////
+/////////////////////////////////
+
 // Request: All the genres
 // Operation: None
 // Response: All the genres
@@ -65,6 +71,11 @@ app.get('/movies/genres/:id', (req, res) => {
   }
 })
 
+
+
+//////////////////////////////////
+///// HANDLING POST REQUESTS /////
+//////////////////////////////////
 
 // Request: Create a new genre
 // Operation: Create a new genre in the array
@@ -97,6 +108,11 @@ app.post('/movies/genres', (req, res) => {
 })
 
 
+
+/////////////////////////////////
+///// HANDLING PUT REQUESTS /////
+/////////////////////////////////
+
 // Request: Update an existing genre by ID
 // Operation: Update the genre name in the array
 // Response: The updated genre
@@ -128,6 +144,11 @@ app.put('/movies/genres/:id', (req, res) => {
   }
 })
 
+
+
+///////////////////////////////////
+///// HANDLING DELETE REQUESTS /////
+///////////////////////////////////
 
 // Request: Delete an existing genre by ID
 // Operation: Delete the genre from the array
