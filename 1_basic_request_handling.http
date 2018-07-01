@@ -1,0 +1,32 @@
+ 
+GET http://localhost:3000/movies/genres
+content-type: application/json
+// Ask for all the genres
+
+###
+GET http://localhost:3000/movies/genres/1
+content-type: application/json
+// Ask for a genre by ID
+
+###
+POST http://localhost:3000/movies/genres
+content-type: application/json
+// Create a new genre
+
+{
+  "name": "Fun"
+}
+
+###
+PUT http://localhost:3000/movies/genres/2
+content-type: application/json
+// Update a new genre
+
+{
+  "name": "Super Horror"
+}
+
+###
+DELETE http://localhost:3000/movies/genres/5
+content-type: application/json
+// Delete a genre

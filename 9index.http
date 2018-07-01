@@ -1,0 +1,52 @@
+ 
+GET http://localhost:3000/api/genres
+content-type: application/json
+// Ask for all the genres
+
+###
+GET http://localhost:3000/api/genres/5b38403d65bed40238d49fad
+content-type: application/json
+// Ask for a genre by ID
+
+###
+POST http://localhost:3000/api/genres
+content-type: application/json
+// Create a new genre
+
+{
+  "name": "Family"
+}
+
+###
+PUT http://localhost:3000/api/genres/1
+content-type: application/json
+// Update a new genre
+
+{
+  "name": "Fun Horror"
+}
+
+###
+DELETE http://localhost:3000/api/genres/5b3845bd6055a702ceefd797
+content-type: application/json
+// Delete a genre
+
+
+
+
+
+###
+GET http://localhost:3000/api/customers
+content-type: application/json
+// Ask for all the customers
+
+###
+POST http://localhost:3000/api/customers
+content-type: application/json
+// Create a new customer
+
+{
+  "isGold": false,
+  "name": "Maxi",
+  "phone": "9999999999"
+}

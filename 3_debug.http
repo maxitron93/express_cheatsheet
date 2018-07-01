@@ -1,0 +1,3 @@
+GET http://localhost:3000/
+content-type: application/json
+// Dummy request to test the database debugger. The server will log "Connected to the database" to the console when any request is sent to the server
