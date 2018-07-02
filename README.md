@@ -70,7 +70,7 @@ Brief overview of how a logging out function could be implemented.
 
 ---
 ## 9_index
-Example of how an simple express server can be structured, with separate folders and modules for routes and models.
+Example of how a simple express server can be structured, with separate folders and modules for routes and models.
 
 Run ```node 9_index.js``` and use ```9_index.http``` to test the various endpoints.
 
