@@ -2,6 +2,12 @@ const express = require('express')
 const app = express()
 const Joi = require('joi')
 
+// Set up the port to listen on
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`Listening on Port ${PORT}`)
+})
+
 // Use middleware to enable the parsing of JSON
 app.use(express.json())
 
@@ -146,9 +152,9 @@ app.put('/movies/genres/:id', (req, res) => {
 
 
 
-///////////////////////////////////
+////////////////////////////////////
 ///// HANDLING DELETE REQUESTS /////
-///////////////////////////////////
+////////////////////////////////////
 
 // Request: Delete an existing genre by ID
 // Operation: Delete the genre from the array
@@ -168,10 +174,4 @@ app.delete('/movies/genres/:id', (req, res) => {
 
   // 4. Send back the deleted genre
   res.send(genre)
-})
-
-
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-  console.log(`Listening on Port ${PORT}`)
 })

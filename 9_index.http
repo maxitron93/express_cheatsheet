@@ -4,7 +4,7 @@ content-type: application/json
 // Ask for all the genres
 
 ###
-GET http://localhost:3000/api/genres/5b38403d65bed40238d49fad
+GET http://localhost:3000/api/genres/5b385c03de81d0031e4c4c33
 content-type: application/json
 // Ask for a genre by ID
 
@@ -14,7 +14,7 @@ content-type: application/json
 // Create a new genre
 
 {
-  "name": "Family"
+  "name": "Family 2"
 }
 
 ###
@@ -27,7 +27,7 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:3000/api/genres/5b3845bd6055a702ceefd797
+DELETE http://localhost:3000/api/genres/5b385c03de81d0031e4c4c33
 content-type: application/json
 // Delete a genre
 
