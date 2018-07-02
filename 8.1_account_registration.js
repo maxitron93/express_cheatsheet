@@ -10,8 +10,6 @@ const Joi = require('joi')
 const _ = require('lodash')
 // bcrypt used to hash passwords
 const bcrypt = require('bcrypt')
-// jsonwebtoken used to create json web tokens
-const jwt = require('jsonwebtoken')
 // Import User model from models/User
 const { User } = require('./models/User')
 

@@ -1,6 +1,6 @@
 POST http://localhost:3000/api/auth
 content-type: application/json
-// Login
+// Login. Notice that a valid token is recieved in the response header if the right details are provided.
 
 {
   "email": "maxi@bestmailserver.lol",

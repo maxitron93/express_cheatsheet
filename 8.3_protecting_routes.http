@@ -1,0 +1,22 @@
+GET http://localhost:3000/api/protected
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YjM5OTBlNzdjMTFhOTAxMThkN2I3NTMiLCJpYXQiOjE1MzA1MjUzNzl9.jH4cXV2YZH1-mVyFUHCJiW3bO9ejxb5rFtks8zehevE
+content-type: application/json
+// This is a GET request to a protected route with a valid token so it should return "This is a protected route. And you've provided a valid token! Your user id is 5b3990e77c11a90118d7b753"
+
+###
+GET http://localhost:3000/api/protected
+x-auth-token: testing123
+content-type: application/json
+// This is a GET request to a protected route with an invalid token it should return "Invalid token"
+
+
+###
+GET http://localhost:3000/api/protected
+content-type: application/json
+// This is a GET request to a protected route with no token it should return "Access denied. No token provided"
+
+###
+GET http://localhost:3000/api/unprotected
+x-auth-token: testing123
+content-type: application/json
+// This is a GET request to an unprotected route. So it should return "This is an unprotected route. You're in! :D" even though an invalid token is provided.
