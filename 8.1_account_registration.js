@@ -12,6 +12,8 @@ const _ = require('lodash')
 const bcrypt = require('bcrypt')
 // jsonwebtoken used to create json web tokens
 const jwt = require('jsonwebtoken')
+// Import User model from models/User
+const { User } = require('./models/User')
 
 
 // 1. Connect to the database
@@ -27,33 +29,6 @@ mongoose.connect('mongodb://localhost/usersDatabase')
   })
   .catch(() => console.log('Could not connect to MongoDB...'))
 
-
-
-// 2. Define schema for Users with validation for each property
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 255
-  },
-  email: {
-    type: String,
-    unique: true,
-    minlength: 2,
-    maxlength: 255
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 8,
-    maxlength: 1024
-  }
-})
-
-// 3. Compile the schema into a model
-const User = mongoose.model('User', userSchema)
-
 // Function to validate the incoming user details. Joi library used to do the validation
 const validateUser = (user) => {
   const schema = {
@@ -65,10 +40,10 @@ const validateUser = (user) => {
   return result = Joi.validate(user, schema)
 }
 
-// 4. Add middleware needed to parse incoming requests
+// 2. Add middleware needed to parse incoming requests
 app.use(express.json())
 
-// 5. Create route handlers
+// 3. Create route handlers
 //////////////////////////
 ///// ROUTE HANDLERS /////
 //////////////////////////
@@ -111,8 +86,8 @@ app.post('/api/users', async (req, res) => {
     // 8. Save the user object to the database
     result = await user.save()
 
-    // 9. (Optional) Create a web token. By sending back a json web token, the user is logged in as soon as he signs up. The first argument is the PUBLIC payload, the second argument is the private key. The private key should be stored in an environment variable, not hard-coded like below
-    const token = jwt.sign({ _id: user._id}, 'Private Key')
+    // 9. (Optional) Create a web token. By sending back a json web token, the user is logged in as soon as he signs up. The function generateAuthToken() is a user instance method that is is defined in models/Users. This is an alternative way of generating the token (instead of doing 'const token = jwt.sign({ _id: this._id}, 'Private Key')' in this module). The benefit is that if we want to change the toekn payload in the future, we would only have to change it in one place.
+    const token = user.generateAuthToken()
 
     // 10. Send back the token in the header and user details in the body (using lodash to extract the name and email from the result object so the other details (password, id) aren't sent back)
     return res.header('x-auth-token', token).send(_.pick(result, ['name', 'email']))

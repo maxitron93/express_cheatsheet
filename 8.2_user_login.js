@@ -8,8 +8,6 @@ const mongoose = require('mongoose')
 const Joi = require('joi')
 // bcrypt used to hash passwords
 const bcrypt = require('bcrypt')
-// jsonwebtoken used to create json web tokens
-const jwt = require('jsonwebtoken')
 // Import User model from models/User
 const { User } = require('./models/User')
 
@@ -72,8 +70,8 @@ app.post('/api/auth', async (req, res) => {
     return res.status(400).send('Invalid username or password')
   }
 
-  // 7. If valid, create a web token. The first argument is the PUBLIC payload, the second argument is the private key. The private key should be stored in an environment variable, not hard-coded like below
-  const token = jwt.sign({ _id: user._id}, 'Private Key')
+  // 7. If valid, create a web token. The function generateAuthToken() is a user instance method that is is defined in models/Users. This is an alternative way of generating the token (instead of doing 'const token = jwt.sign({ _id: this._id}, 'Private Key')' in this module). The benefit is that if we want to change the toekn payload in the future, we would only have to change it in one place.
+  const token = user.generateAuthToken()
   
   // 8. Send back the token in the header and the user id in the body
   return res.header('x-auth-token', token).send({ _id: user.id })

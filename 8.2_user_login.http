@@ -3,6 +3,6 @@ content-type: application/json
 // Login
 
 {
-  "email": "maxi@bestmailserver.lol2",
+  "email": "maxi@bestmailserver.lol",
   "password": "notsosecretpassword"
 }
